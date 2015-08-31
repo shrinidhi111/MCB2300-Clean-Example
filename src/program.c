@@ -8,6 +8,7 @@
 #include <LPC23xx.H>
 
 //User files
+#include "program.h"
 #include "LCD.h"
 #include "LED.h"
 #include "timing.h"
@@ -21,6 +22,7 @@ int main(void)
     //Initialisation
     lcd_init();                      //Initialise the LCD screen
     lcd_clear();                     //Clear the LCD screen
+	  lcd_print("Counter: 0000000");   //Print init text to the screen
 
     LED_Init();                      //Initialise the LEDs
 
@@ -34,8 +36,7 @@ int main(void)
         delay(1000);                 //Wait one second
 
         i++;                         //Count i
-        lcd_clear();                 //Clear the LCD
-        lcd_print("Counter: ");
+				set_cursor(9,0);             //Clear is not needed, just overwrite
         sprintf(counter, "%07d", i); //Cast the counter to a 7 char array (lcd_print doesn't support ints)
         lcd_print(counter);          //Print the array
 

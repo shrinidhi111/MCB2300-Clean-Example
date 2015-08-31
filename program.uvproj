@@ -349,7 +349,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>.\general\inc;.\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -494,7 +494,7 @@
             <File>
               <FileName>program.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\program.c</FilePath>
+              <FilePath>.\src\program.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -540,6 +540,13 @@
         </Group>
         <Group>
           <GroupName>inc</GroupName>
+          <Files>
+            <File>
+              <FileName>program.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\inc\program.h</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>
