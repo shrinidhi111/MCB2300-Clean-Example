@@ -14,4 +14,4 @@ In this example the following things are included:
 
 ## Changes
 I'm planning to update this repo with new libraries as time passes. Please clone this repository (instead of downloading it), so that you can keep it up to date.
-If you encounter a problem or if you do want to add something (like a file or function), don't hesitate to e-mail me on info@ljpc.nl.
+If you encounter a problem or if you do want to add something (like a file or function), don't hesitate to e-mail me at info@ljpc.nl.
