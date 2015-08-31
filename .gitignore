@@ -1,0 +1,5 @@
+program.uvgui_Lars.bak
+*.orig
+build/
+program.uvgui.Lars
+*.bak
