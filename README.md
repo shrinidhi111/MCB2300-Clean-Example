@@ -12,6 +12,9 @@ In this example the following things are included:
 - Right LCD file (the one from BlackBoard)
 - LED file (made from the Blinky example, provided by Keil), added some defines like LEDX, LED_ALL and LED_NONE (please take a look at LED.h in general/inc/LED.h)
 - Timing file, this file includes a simple delay function.
+- IRQ file, this file is needed for the delay function in timing.c.
+- Button file, to control the INT0 button.
+- Tone generator file, this file includes some basic functions to control the tone generator.
 
 Please note, I disabled all optimizations to make the program debuggable. Check the "C/C++ Settings" under "Options for Target 'MCB2300'" in the Project menu.
 

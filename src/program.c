@@ -14,6 +14,7 @@
 #include "IRQ.h"
 #include "timing.h"
 #include "button.h"
+#include "tonegen.h"
 
 int main(void)
 {
@@ -32,14 +33,16 @@ int main(void)
 
     button_init();                   //Initialise the INT0 button (use as INT0)
 
+    ToneGen_init();                  //Initialise the tone generator
+
     //Do forever
     while(1)
     {
         LED_out(LED_ALL);            //Turn on all LEDs
-        delay(50);                   //Wait 50ms
+        delay(500);                  //Wait 500ms
 
         LED_out(LED_NONE);           //Turn on none LEDs (so turn them all off)
-        delay(50);                   //Wait 50ms
+        delay(500);                  //Wait 500ms
 
         i++;                         //Count i
         set_cursor(9,0);             //Clear is not needed, just overwrite
@@ -48,6 +51,7 @@ int main(void)
 
         if(INT0)
         {
+            ToneGen(1000, 100);      //Play a tone for 100ms at 1000Hz
             i = 0;                   //Reset the counter when the button is pressed
         }
 
@@ -57,4 +61,5 @@ int main(void)
             i = 0;
         }
     }
+
 }

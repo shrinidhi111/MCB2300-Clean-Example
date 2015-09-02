@@ -476,6 +476,11 @@
               <FileType>1</FileType>
               <FilePath>.\general\src\button.c</FilePath>
             </File>
+            <File>
+              <FileName>tonegen.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\general\src\tonegen.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -505,6 +510,11 @@
               <FileName>button.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\general\inc\button.h</FilePath>
+            </File>
+            <File>
+              <FileName>tonegen.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\general\inc\tonegen.h</FilePath>
             </File>
           </Files>
         </Group>
