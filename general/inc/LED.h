@@ -10,7 +10,7 @@
 #define    LED_ALL    LED0 | LED1 | LED2 | LED3 | LED4 | LED5 | LED6 | LED7
 #define    LED_NONE   0x00
 
-void LED_Init (void);
-void LED_On (unsigned int num);
-void LED_Off (unsigned int num);
-void LED_Out (unsigned int value);
+void LED_init (void);
+void LED_on (unsigned int num);
+void LED_off (unsigned int num);
+void LED_out (unsigned int value);

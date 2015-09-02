@@ -8,7 +8,7 @@
 /* development tools. Nothing else gives you the right to use this software.  */
 /******************************************************************************/
 
-#include <LPC23xx.H>                    /* LPC23xx definitions                */
+#include <LPC23xx.h>                    /* LPC23xx definitions                */
 #include <stdbool.h>
 #include "IRQ.h"
 
@@ -16,10 +16,10 @@ bool delay_done = false;
 unsigned int delay_ms = 0;
 int clk_cntr = 0;
 
-void T0_Init(void)
+void T0_init(void)
 {
     /* Enable and setup timer interrupt, start timer */
-    T0MR0 = 11998; /* 1msec = 12000-1 at 12.0 MHz */
+    T0MR0 = 11999; /* 1msec = 12000-1 at 12.0 MHz */
     T0MCR = 3; /* Interrupt and Reset on MR0 */
     T0TCR = 1; /* Timer0 Enable */
     VICVectAddr4 = (unsigned long)T0_IRQHandler;/* Set Interrupt Vector */

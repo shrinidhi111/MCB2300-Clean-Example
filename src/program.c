@@ -13,6 +13,7 @@
 #include "LED.h"
 #include "IRQ.h"
 #include "timing.h"
+#include "button.h"
 
 int main(void)
 {
@@ -25,17 +26,19 @@ int main(void)
     lcd_clear();                     //Clear the LCD screen
     lcd_print("Counter: 0000000");   //Print init text to the screen
 
-    LED_Init();                      //Initialise the LEDs
+    LED_init();                      //Initialise the LEDs
 
-    T0_Init();
+    T0_init();                       //Initialise the first timer (at 1ms)
+	
+		button_init();                   //Initialise the INT0 button (use as INT0)
 
     //Do forever
     while(1)
     {
-        LED_Out(LED_ALL);            //Turn on all LEDs
+        LED_out(LED_ALL);            //Turn on all LEDs
         delay(500);                 //Wait one second
 
-        LED_Out(LED_NONE);           //Turn on none LEDs (so turn them all off)
+        LED_out(LED_NONE);           //Turn on none LEDs (so turn them all off)
         delay(500);                 //Wait one second
 
         i++;                         //Count i
