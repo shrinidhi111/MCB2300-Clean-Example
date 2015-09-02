@@ -11,7 +11,7 @@ In this example the following things are included:
 - Program folders; /inc, /src. This is where the program itself is and where you should put your own code.
 - Right LCD file (the one from BlackBoard)
 - LED file (made from the Blinky example, provided by Keil), added some defines like LEDX, LED_ALL and LED_NONE (please take a look at LED.h in general/inc/LED.h)
-- Timing file, this file includes a simple delay function that does work, but not properly at the right timing at the moment.
+- Timing file, this file includes a simple delay function.
 
 Please note, I disabled all optimizations to make the program debuggable. Check the "C/C++ Settings" under "Options for Target 'MCB2300'" in the Project menu.
 
