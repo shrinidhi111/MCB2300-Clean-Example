@@ -1,5 +1,10 @@
+#include "IRQ.h"
+
 void delay (unsigned int millis)
 {
-    millis = millis * 12000000 / 1000;
-    while(millis--);
+    delay_done = false;
+    clk_cntr = 0;
+    delay_ms = millis;
+
+    while(!delay_done) {}
 }

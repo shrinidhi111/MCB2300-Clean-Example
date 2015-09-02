@@ -11,6 +11,7 @@
 #include "program.h"
 #include "LCD.h"
 #include "LED.h"
+#include "IRQ.h"
 #include "timing.h"
 
 int main(void)
@@ -26,14 +27,16 @@ int main(void)
 
     LED_Init();                      //Initialise the LEDs
 
+    T0_Init();
+
     //Do forever
     while(1)
     {
         LED_Out(LED_ALL);            //Turn on all LEDs
-        delay(1000);                 //Wait one second
+        delay(500);                 //Wait one second
 
         LED_Out(LED_NONE);           //Turn on none LEDs (so turn them all off)
-        delay(1000);                 //Wait one second
+        delay(500);                 //Wait one second
 
         i++;                         //Count i
         set_cursor(9,0);             //Clear is not needed, just overwrite

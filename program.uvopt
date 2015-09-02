@@ -159,7 +159,7 @@
 
   <Group>
     <GroupName>general_src</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -198,8 +198,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\general\src\timing.c</PathWithFileName>
       <FilenameWithoutPath>timing.c</FilenameWithoutPath>
@@ -218,11 +218,25 @@
       <PathWithFileName>.\general\src\LPC2300.s</PathWithFileName>
       <FilenameWithoutPath>LPC2300.s</FilenameWithoutPath>
     </File>
+    <File>
+      <GroupNumber>1</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>13</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>1</TopLine>
+      <CurrentLine>21</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\general\src\IRQ.c</PathWithFileName>
+      <FilenameWithoutPath>IRQ.c</FilenameWithoutPath>
+    </File>
   </Group>
 
   <Group>
     <GroupName>general_inc</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
@@ -267,6 +281,20 @@
       <PathWithFileName>.\general\inc\timing.h</PathWithFileName>
       <FilenameWithoutPath>timing.h</FilenameWithoutPath>
     </File>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>9</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>1</TopLine>
+      <CurrentLine>7</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\general\inc\IRQ.h</PathWithFileName>
+      <FilenameWithoutPath>IRQ.h</FilenameWithoutPath>
+    </File>
   </Group>
 
   <Group>
@@ -280,10 +308,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>29</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>1</CurrentLine>
+      <TopLine>24</TopLine>
+      <CurrentLine>21</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\src\program.c</PathWithFileName>
       <FilenameWithoutPath>program.c</FilenameWithoutPath>
