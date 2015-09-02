@@ -29,22 +29,27 @@ int main(void)
     LED_init();                      //Initialise the LEDs
 
     T0_init();                       //Initialise the first timer (at 1ms)
-	
-		button_init();                   //Initialise the INT0 button (use as INT0)
+
+    button_init();                   //Initialise the INT0 button (use as INT0)
 
     //Do forever
     while(1)
     {
         LED_out(LED_ALL);            //Turn on all LEDs
-        delay(500);                 //Wait one second
+        delay(50);                   //Wait 50ms
 
         LED_out(LED_NONE);           //Turn on none LEDs (so turn them all off)
-        delay(500);                 //Wait one second
+        delay(50);                   //Wait 50ms
 
         i++;                         //Count i
         set_cursor(9,0);             //Clear is not needed, just overwrite
         sprintf(counter, "%07d", i); //Cast the counter to a 7 char array (lcd_print doesn't support ints)
         lcd_print(counter);          //Print the array
+
+        if(INT0)
+        {
+            i = 0;                   //Reset the counter when the button is pressed
+        }
 
         //Little (and simple) protection for char array overflow
         if(i == 9999999)

@@ -2,7 +2,9 @@
 
 #include "button.h"
 
-void button_init(void){
-	FIO2DIR = (0 << 10);      //Set bit 10 to 0 (to make it an input)
-	PINSEL10 = 0;
+void button_init(void)
+{
+    PINSEL10 = 0; // Disable ETM interface, enable LEDs
+    FIO2DIR0 = 0xFF;
+    PINMODE4 = 0x0020AAAA;
 }
