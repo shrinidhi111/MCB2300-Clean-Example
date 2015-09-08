@@ -1,10 +1,17 @@
+//System libraries
 #include <LPC23xx.h>
 
+//Defines
 #include "button.h"
 
+/*
+ * Function: button_init
+ * Description: Sets the right registers so that the INT0 button works.
+ *
+ * Parameters in:  none
+ * Parameters out: none
+ */
 void button_init(void)
 {
-    PINSEL10 = 0; // Disable ETM interface, enable LEDs
-    FIO2DIR0 = 0xFF;
-    PINMODE4 = 0x0020AAAA;
+    FIO2DIR0 = 0xFF;    //Set button pin as input
 }

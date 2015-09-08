@@ -467,11 +467,6 @@
               <FilePath>.\general\src\LPC2300.s</FilePath>
             </File>
             <File>
-              <FileName>IRQ.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\general\src\IRQ.c</FilePath>
-            </File>
-            <File>
               <FileName>button.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\general\src\button.c</FilePath>
@@ -500,11 +495,6 @@
               <FileName>timing.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\general\inc\timing.h</FilePath>
-            </File>
-            <File>
-              <FileName>IRQ.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\general\inc\IRQ.h</FilePath>
             </File>
             <File>
               <FileName>button.h</FileName>

@@ -11,7 +11,6 @@
 #include "program.h"
 #include "LCD.h"
 #include "LED.h"
-#include "IRQ.h"
 #include "timing.h"
 #include "button.h"
 #include "tonegen.h"
