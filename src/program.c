@@ -15,6 +15,9 @@
 #include "button.h"
 #include "tonegen.h"
 
+//Definitions
+#define BUTTON_AS_INTERRUPT
+
 int main(void)
 {
     //Variables
@@ -30,7 +33,11 @@ int main(void)
 
     T0_init();                       //Initialise the first timer (at 1ms)
 
+#ifndef BUTTON_AS_INTERRUPT
     button_init();                   //Initialise the INT0 button (use as INT0)
+#else
+    button_as_interrupt(15);         //Configure the INT0 button as interrupt
+#endif
 
     ToneGen_init();                  //Initialise the tone generator
 
@@ -48,11 +55,13 @@ int main(void)
         sprintf(counter, "%07d", i); //Cast the counter to a 7 char array (lcd_print doesn't support ints)
         lcd_print(counter);          //Print the array
 
+#ifndef BUTTON_AS_INTERRUPT
         if(INT0)
         {
             ToneGen(1000, 100);      //Play a tone for 100ms at 1000Hz
             i = 0;                   //Reset the counter when the button is pressed
         }
+#endif
 
         //Little (and simple) protection for char array overflow
         if(i == 9999999)

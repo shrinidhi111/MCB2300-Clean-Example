@@ -20,11 +20,12 @@ int clk_cntr = 0;
  */
 void T0_init(void)
 {
-    T0MR0 = 11999;           //1msec = 12000-1 at 12.0 MHz
-    T0MCR = 3;               //Interrupt and Reset on MR0
-    T0TCR = 1;               //Timer0 Enable
+    T0MR0 = 11999;            //1msec = 12000-1 at 12.0 MHz
+    T0MCR = 3;                //Interrupt and Reset on MR0
+    T0TCR = 1;                //Timer0 Enable
+	  VICVectPriority4 = 0;     //Make this timer important
     VICVectAddr4 = (unsigned long)T0_IRQHandler; //Set Interrupt Vector
-    VICIntEnable = (1 << 4); //Enable Timer0 Interrupt
+    VICIntEnable |= (1 << 4); //Enable Timer0 Interrupt
 }
 
 /*
@@ -47,8 +48,8 @@ __irq void T0_IRQHandler (void)
         clk_cntr++;                  //Increment the counter with 1. This happens every ms.
     }
 
-    T0IR        = 1;                 //Clear interrupt flag
-    VICVectAddr = 0;                 //Acknowledge Interrupt
+    T0IR         = 1;                //Clear interrupt flag
+    VICVectAddr  = 0;                //Acknowledge Interrupt
 }
 
 /*

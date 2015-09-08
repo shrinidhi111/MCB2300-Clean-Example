@@ -10,8 +10,8 @@
  */
 void LED_init(void)
 {
-    PINSEL10 = 0;                         /* Disable ETM interface, enable LEDs */
-    FIO2DIR  = 0x000000FF;                /* P2.0..7 defined as Outputs         */
+    PINSEL10 = 0;              //Disable ETM and enabled LEDs
+    FIO2DIR0 = 0xFF;           //Set LEDs as output
     FIO2MASK = 0x00000000;
 }
 

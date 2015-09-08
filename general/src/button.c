@@ -1,6 +1,9 @@
 //System libraries
 #include <LPC23xx.h>
 
+//Just for this example
+#include "timing.h"
+
 //Defines
 #include "button.h"
 
@@ -13,5 +16,48 @@
  */
 void button_init(void)
 {
-    FIO2DIR0 = 0xFF;    //Set button pin as input
+    FIO2DIR1 &= ~(1 << 2);   //Set button pin as input
+}
+
+/*
+ * Function: EINT0_ISR
+ * Description: This function will be called when the button is pressed while
+ *              configured as interrupt
+ *
+ * Parameters in:  none
+ * Parameters out: none
+ */
+__irq void EINT0_ISR(void)   // interrupt service routine
+{
+    //Place your code here
+		FIO2PIN0=0xF0;
+
+    EXTINT |= (1 << 0);     // clears EINT0 interrupt flag
+    VICVectAddr = 0;        // Update interrupt priority hardware
+};
+
+/*
+ * Function: button_as_interrupt
+ * Description: This function configures the button as interrupt
+ *
+ * Parameters in:
+ *      priority: value from 0 to 15. 0 is the highest priority.
+ *
+ * Parameters out: none
+ */
+void button_as_interrupt(unsigned char priority)
+{
+    if(priority > 15)
+    {
+        priority = 15;
+    }
+
+    FIO2DIR1 &= ~(1 << 2);      //Set button pin as input
+    PINSEL4  |=  (1 << 20);     //Set button function as EINT0
+    PINSEL4  &= ~(0 << 21);
+    EXTMODE  &= ~(0 << 0);      // select level-sensitive EINT0.
+    EXTINT   |= 0x01;           // clears EINT0 interrupt flag
+    VICVectPriority14 = priority;  // set the desired priority
+    VICIntEnable  |= (1 << 14); // enable interrupt source 14 (EINT0).
+    VICVectAddr14 = (unsigned long) EINT0_ISR; // Address of Interrupt Service Routine
 }

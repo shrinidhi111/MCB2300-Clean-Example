@@ -6,3 +6,6 @@
 
 //Function prototypes
 void button_init(void);
+
+__irq void EINT0_ISR(void);
+void button_as_interrupt(unsigned char priority);
