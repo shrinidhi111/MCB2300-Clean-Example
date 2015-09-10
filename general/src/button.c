@@ -52,12 +52,13 @@ void button_as_interrupt(unsigned char priority)
         priority = 15;
     }
 
-    FIO2DIR1 &= ~(1 << 2);      //Set button pin as input
-    PINSEL4  |=  (1 << 20);     //Set button function as EINT0
-    PINSEL4  &= ~(0 << 21);
-    EXTMODE  &= ~(0 << 0);      // select level-sensitive EINT0.
-    EXTINT   |= 0x01;           // clears EINT0 interrupt flag
-    VICVectPriority14 = priority;  // set the desired priority
-    VICIntEnable  |= (1 << 14); // enable interrupt source 14 (EINT0).
-    VICVectAddr14 = (unsigned long) EINT0_ISR; // Address of Interrupt Service Routine
+    FIO2DIR1 &= ~(1 << 2);                     //Set button pin as input
+    PINSEL4  |=  (1 << 20);                    //Set button function as EINT0
+    PINSEL4  &= ~(1 << 21);
+    EXTMODE  |=  (1 << 0);                     //Select egde-sensitive EINT0
+    EXTPOLAR &= ~(1 << 0);                     //Set on falling edge
+    EXTINT   |=   0x01;                        //Clears EINT0 interrupt flag
+    VICVectPriority14 = priority;              //Set the desired priority
+    VICIntEnable  |= (1 << 14);                //Enable interrupt source 14 (EINT0)
+    VICVectAddr14 = (unsigned long) EINT0_ISR; //Address of Interrupt Service Routine
 }
