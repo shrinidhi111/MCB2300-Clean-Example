@@ -15,15 +15,17 @@ int clk_cntr = 0;
  * Function: T0_init
  * Description: Enable and setup timer interrupt, start timer 0
  *
- * Parameters in:  none
+ * Parameters in:  
+ *   millis: The amount of milliseconds at which the timer should start.
+ *
  * Parameters out: none
  */
-void T0_init(void)
+void T0_init(int millis)
 {
-    T0MR0 = 11999;            //1msec = 12000-1 at 12.0 MHz
+    T0MR0 = 12000 - millis;   //1msec = 12000-1 at 12.0 MHz
     T0MCR = 3;                //Interrupt and Reset on MR0
     T0TCR = 1;                //Timer0 Enable
-	  VICVectPriority4 = 0;     //Make this timer important
+    VICVectPriority4 = 0;     //Make this timer important
     VICVectAddr4 = (unsigned long)T0_IRQHandler; //Set Interrupt Vector
     VICIntEnable |= (1 << 4); //Enable Timer0 Interrupt
 }
